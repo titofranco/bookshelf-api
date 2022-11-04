@@ -37,7 +37,6 @@ module BookshelfApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    #ActiveModelSerializers.config.adapter = :json
     ActiveModelSerializers.config.key_transform = :camel_lower
   end
 end

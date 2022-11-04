@@ -1,0 +1,3 @@
+development:
+  issuerUri: dev-d3dk2fmqo2z0kahe.us.auth0.com 
+  audience: https://api.bookshelf 
