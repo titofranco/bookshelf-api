@@ -9,8 +9,8 @@ class ApplicationController < ActionController::API
 
   end
 
-  def can_read_admin_messages!
-    check_permissions(@token, 'read:admin-messages')
+  def can_read_books!
+    check_permissions(@token, 'read:books')
   end
   
   def check_permissions(token, permission)
