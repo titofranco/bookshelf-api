@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_172357) do
   create_table "list_items", force: :cascade do |t|
     t.bigint "book_id"
     t.bigint "ownerId"
-    t.integer "rating"
+    t.integer "rating", default: 0
     t.text "notes"
     t.bigint "finishDate"
     t.bigint "startDate"
