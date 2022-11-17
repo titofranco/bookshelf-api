@@ -4,12 +4,12 @@ module Api
     before_action :authorize!
 
     def index
-      list_items = ListItem.all
+      list_items = ListItem.includes(:book)
       render json: list_items, each_serializer: ListItemSerializer
     end
 
     def create
-      list_item = ListItem.find_or_initialize_by(book_id: params[:bookId])
+      list_item = ListItem.find_or_initialize_by(book_id: params[:bookId], startDate: params[:startDate])
       if list_item.valid?
         list_item.save
         render json: list_item.to_json(include: [:book]), status: 200
