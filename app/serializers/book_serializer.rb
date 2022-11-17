@@ -1,3 +1,3 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :title, :author, :cover_image_url, :id, :page_count, :publisher, :synopsis
+  attributes :title, :author, :coverImageUrl, :id, :pageCount, :publisher, :synopsis
 end

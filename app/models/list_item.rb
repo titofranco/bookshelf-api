@@ -1,3 +1,3 @@
 class ListItem < ApplicationRecord
-  belongs_to :book, primary_key: :id
+  belongs_to :book, foreign_key: 'bookId'
 end

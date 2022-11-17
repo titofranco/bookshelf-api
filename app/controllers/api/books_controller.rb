@@ -5,7 +5,7 @@ module Api
     before_action :can_read_books!
 
     def index
-      books = Book.order(:title)
+      books = Book.order(:title).limit(10)
       books = books.where("title ILIKE ?", "%#{params[:query]}%") if params[:query]
       render json: books, each_serializer: BookSerializer
     end

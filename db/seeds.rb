@@ -671,8 +671,8 @@ BOOKS.each do |bookData|
   book = Book.find_or_create_by(title: bookData[:title]) do |record|
     record.id = bookData[:id]
     record.author = bookData[:author]
-    record.cover_image_url = bookData[:coverImageUrl]
-    record.page_count = bookData[:pageCount]
+    record.coverImageUrl = bookData[:coverImageUrl]
+    record.pageCount = bookData[:pageCount]
     record.publisher = bookData[:publisher]
     record.synopsis = bookData[:synopsis]
   end

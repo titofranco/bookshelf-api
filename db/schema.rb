@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_172357) do
     t.string "id"
     t.string "title"
     t.string "author"
-    t.string "cover_image_url"
-    t.string "page_count"
+    t.string "coverImageUrl"
+    t.string "pageCount"
     t.string "publisher"
     t.string "synopsis"
     t.datetime "created_at", precision: 6, null: false
@@ -28,15 +28,14 @@ ActiveRecord::Schema.define(version: 2022_11_15_172357) do
   end
 
   create_table "list_items", force: :cascade do |t|
-    t.bigint "book_id"
-    t.bigint "ownerId"
+    t.string "bookId"
+    t.string "ownerId"
     t.integer "rating", default: 0
     t.text "notes"
     t.bigint "finishDate"
     t.bigint "startDate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_list_items_on_book_id"
   end
 
 end

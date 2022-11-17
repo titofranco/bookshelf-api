@@ -4,13 +4,14 @@ module Api
     before_action :authorize!
 
     def index
-      list_items = ListItem.includes(:book)
-      render json: list_items, each_serializer: ListItemSerializer
+      list_items = ListItem.includes(:book).where(ownerId: params[:ownerId])
+      render json: list_items , each_serializer: ListItemSerializer
     end
 
     def create
-      list_item = ListItem.find_or_initialize_by(book_id: params[:bookId], startDate: params[:startDate])
+      list_item = ListItem.find_or_initialize_by(bookId: params[:bookId], ownerId: params[:ownerId])
       if list_item.valid?
+        list_item.startDate = params[:startDate]
         list_item.save
         render json: list_item.to_json(include: [:book]), status: 200
       else
@@ -40,7 +41,7 @@ module Api
 
     def list_item_params
       params[:list_item].delete(:id)
-      params.require(:list_item).permit(:book_id, :ownerId, :rating, :notes, :finishDate, :startDate)
+      params.require(:list_item).permit(:bookId, :ownerId, :rating, :notes, :finishDate, :startDate)
     end
   end
 end
