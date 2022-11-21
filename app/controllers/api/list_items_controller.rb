@@ -4,7 +4,7 @@ module Api
     before_action :authorize!
 
     def index
-      list_items = ListItem.includes(:book).where(ownerId: params[:ownerId])
+      list_items = ListItem.eager_load(:book).where(ownerId: params[:ownerId])
       render json: list_items , each_serializer: ListItemSerializer
     end
 
